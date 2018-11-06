@@ -79,6 +79,10 @@ aside h1{
 	margin-bottom: 25px;
 }
 
+aside li {
+	display: inline-block;
+}
+
 strong {
     font-weight: bold;
 }
