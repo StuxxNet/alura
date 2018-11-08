@@ -55,8 +55,8 @@
 	text-align: center;
 	padding: 25px;
 	margin: 0;
-	border-bottom: 10px solid #000
-	text-transform: uppercase;
+	border-bottom: 10px solid #000;
+	text-transform: uppercase;	
 }
 
 .leia-mais {
@@ -74,6 +74,14 @@ body{
 
 main a{
 	color: #851944;
+}
+
+nav a{
+	text-transform: lowercase;
+}
+
+h1 {
+	text-transform: uppercase;	
 }
 
 h2 {
