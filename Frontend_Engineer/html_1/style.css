@@ -24,6 +24,7 @@
 .footer-pagina {
 	background-color: #000;
 	color: #F2FFFC;
+	clear: both;
 }
 
 .citacao-profissionais{
@@ -34,10 +35,22 @@
 	margin: 20px 40px;
 }
 
+.fiat{
+	float: right;
+}
+
+.petrobras{
+	float: left;
+}
+
 .navegacao-site{
 	background-color: #3C1D3D;
 	color: #F2FFFC;
 	text-align: center;
+	float: right;
+	clear: right;
+	width: 15%;
+	box-sizing: border-box;
 }
 
 .conteudo-principal{
@@ -72,6 +85,11 @@ body{
 	background-color: #F2FFFC;
 }
 
+main {
+	float: left;
+	width: 85%;
+}
+
 main a{
 	color: #851944;
 }
@@ -86,6 +104,7 @@ h1 {
 
 h2 {
 	font-size: 30px;
+	clear: both;
 }
 
 h1,h2{
@@ -118,6 +137,11 @@ aside, blockquote, footer{
 aside h1{
 	font-size: 30px;
 	margin-bottom: 25px;
+}
+
+img{
+	float: right;
+	width: 15%
 }
 
 strong {
