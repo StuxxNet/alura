@@ -43,13 +43,20 @@
 	float: left;
 }
 
+.citacao{
+	float: right;
+	font-style: italic;
+}
+
 .navegacao-site{
 	background-color: #3C1D3D;
 	color: #F2FFFC;
 	text-align: center;
 	float: right;
-	clear: right;
 	width: 15%;
+	border-left: 10px solid #000;
+	border-right: 10px solid #000;
+	border-bottom: 10px solid #000;
 	box-sizing: border-box;
 }
 
@@ -80,6 +87,7 @@
 	text-align: center;
 	background-color: #E6E7E8;
 }
+
 
 body{
 	background-color: #F2FFFC;
@@ -141,7 +149,9 @@ aside h1{
 
 img{
 	float: right;
-	width: 15%
+	width: 15%;
+	box-sizing: border-box;
+	border: 10px solid #000;
 }
 
 strong {
