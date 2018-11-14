@@ -1,0 +1,24 @@
+.site-list{
+    margin-top: 20px;
+}
+
+.site-list li{
+    display: inline-block;
+    width: 45%;
+    border: 8px solid #000;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    padding: 16px;
+    width: 290px;
+    box-sizing: border-box;
+}
+
+.imagem-site{
+    width: 100%;
+}
+
+.caption-site{
+    color: #3C1D3D;
+    text-decoration: underline;
+    font-family: "Crimson Text", serif;
+}

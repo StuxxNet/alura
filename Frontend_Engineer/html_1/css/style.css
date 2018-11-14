@@ -68,10 +68,7 @@
 .imagem-perfil{
 	position: absolute;
 	top: 0px;
-	right: 0px
-}
-
-img{
+	right: 0px;
 	float: right;
 	box-sizing: border-box;
 	border: 10px solid #000;
@@ -103,7 +100,7 @@ h2 {
 	clear: both;
 }
 
-h1,h2{
+h1,h2,h3{
 	font-family: "Open Sans Condensed", sans-serif;
 }
 
