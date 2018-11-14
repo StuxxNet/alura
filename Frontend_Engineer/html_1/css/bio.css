@@ -1,0 +1,20 @@
+.citacao-profissionais{
+	background-color: #D9E5E3;
+	border: 10px solid #C2CCCA;
+	box-sizing: border-box;
+	width: 250px;
+	margin: 20px 40px;
+}
+
+.citacao{
+	float: right;
+	font-style: italic;
+}
+
+.fiat{
+	float: right;
+}
+
+.petrobras{
+	float: left;
+}

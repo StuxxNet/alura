@@ -10,15 +10,15 @@
 }
 
 .github {
-	background-image: url(images/github.png);
+	background-image: url(../images/github.png);
 }
 
 .twitter {
-	background-image: url(images/twitter.png);
+	background-image: url(../images/twitter.png);
 }
 
 .linkedin {
-	background-image: url(images/linkedin.png);
+	background-image: url(../images/linkedin.png);
 }
 
 .footer-pagina {
@@ -29,27 +29,6 @@
 	bottom: 0;
 	width: 100%;
 	box-sizing: border-box;
-}
-
-.citacao-profissionais{
-	background-color: #D9E5E3;
-	border: 10px solid #C2CCCA;
-	box-sizing: border-box;
-	width: 250px;
-	margin: 20px 40px;
-}
-
-.fiat{
-	float: right;
-}
-
-.petrobras{
-	float: left;
-}
-
-.citacao{
-	float: right;
-	font-style: italic;
 }
 
 .navegacao-site{
@@ -84,15 +63,6 @@
 	margin: 0;
 	border-bottom: 10px solid #000;
 	text-transform: uppercase;	
-}
-
-.leia-mais {
-	font-size: 24px;
-	padding: 8px;
-	margin: 16px;
-	display: block;
-	text-align: center;
-	background-color: #E6E7E8;
 }
 
 .imagem-perfil{
@@ -171,10 +141,4 @@ strong {
 
 em {
     font-style: italic;
-}
-
-article {
-	padding-bottom: 30px;
-	margin-top: 20px;
-	border-bottom: 1px solid #CCC
 }
