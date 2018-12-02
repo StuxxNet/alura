@@ -4,5 +4,5 @@ exec { "apt-get update":
 
 package { ["openjdk-7-jre", "tomcat7"]:
     ensure => installed,
-    require => Exec[apt-get update]
+    require => Exec["apt-get update"],
 }
