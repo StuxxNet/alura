@@ -4,6 +4,8 @@ print("*********************************")
 print("Bem vindo ao jogo de adivinhação!")
 print("*********************************")
 
+pontos = 1000
+
 print("Nível de dificuldade: ")
 print("1 - Fácil\n2 - Médio\n3 - Difícil")
 nivel = int(input("Selecione: "))
@@ -32,8 +34,10 @@ for rodada in range(1, total_tentativas + 1):
         print("Você chutou um número maior")
     else:
         print("Você chutou um número menor")
+    pontos = pontos - abs(numero_secreto - chute_usuario)
 
 if (not acertou):
     print("O número gerado foi {}".format(numero_secreto))
 
+print("Pontuação final: {}".format(pontos))
 print("Fim do jogo")
