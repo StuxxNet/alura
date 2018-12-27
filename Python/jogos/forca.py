@@ -1,5 +1,11 @@
 import random
 
+def jogar():
+    imprime_comeco()
+    lista_palavras = ler_arquivo("c:/Users/f0fp559/Documents/alura/Python/jogos/palavras.txt")
+    palavra = define_palavra(lista_palavras)
+    resolve_jogo(palavra)
+
 def imprime_comeco():
     print("*********************************")
     print("Bem vindo ao jogo da forca!")
@@ -26,36 +32,40 @@ def imprime_palavra(resultado):
         print(letra, sep=" ", end=" ")
     print("\n")
 
+def imprime_resultado(acertou, enforcou, palavra):
+    if (acertou):
+        print("Você ganhou!")
+    if (enforcou):
+        print("Você perdeu! A palavra era{}".format(palavra))
+
+def verifica_acerto(chute, palavra, resultado):
+    index = 0
+    for letra in palavra:
+        if (chute == letra):
+            resultado[index] = letra
+        index += 1
+    return resultado
+
+def verifica_erro(erros):
+    erros += 1
+    print("Você errou. Jogadas restantes:{}".format(6 - erros))
+    return erros
+
 def resolve_jogo(palavra):
-    enforcou = False
-    acertou = False
+    enforcou = acertou = False
     erros = 0
     resultado = preenche_resultado(palavra)
     imprime_palavra(resultado)
     while (not enforcou and not acertou):
         chute = retorna_chute()
-        index = 0
         if (chute in palavra):
-            for letra in palavra:
-                if (chute == letra):
-                    resultado[index] = letra
-                index += 1
+            resultado = verifica_acerto(chute, palavra, resultado)
         else:
-            erros += 1
-            print("Você errou. Jogadas restantes:{}".format(6 - erros))
+            erros = verifica_erro(erros)
         acertou = "_" not in resultado
         enforcou = erros == 6
         imprime_palavra(resultado)
-    if (acertou):
-        print("Você ganhou!")
-    if (enforcou):
-        print("Você perdeu!")
-
-def jogar():
-    imprime_comeco()
-    lista_palavras = ler_arquivo("c:/Users/f0fp559/Documents/alura/Python/jogos/palavras.txt")
-    palavra = define_palavra(lista_palavras)
-    resolve_jogo(palavra)
+    imprime_resultado(acertou, enforcou, palavra)
 
 if(__name__ == "__main__"):
     jogar()
