@@ -1,0 +1,12 @@
+---
+- name: Testando minha playbook
+  hosts: all
+
+  tasks:
+    - name: Garantindo a instalação do Apache + PHP + MOD-PHP
+      apt:
+        name: [apache2,php,libapache2-mod-php]
+        state: latest
+        update_cache: yes
+      become: yes
+...
