@@ -9,4 +9,20 @@
         state: latest
         update_cache: yes
       become: yes
+
+    - name: Garantindo o banco MySQL
+      mysql_db:
+        name: wordpress_db
+        login_user: root
+        state: present
+      become: yes
+
+    - name: Garantindo usuario do MySQL
+      mysql_user:
+        login_user: root
+        name: wordpress_user
+        password: 12345
+        priv: 'wordpress_db.*:ALL,GRANT'
+        state: present
+      become: yes
 ...
