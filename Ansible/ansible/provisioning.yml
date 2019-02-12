@@ -3,9 +3,9 @@
   hosts: all
 
   tasks:
-    - name: Garantindo a instalação do Apache + PHP + MOD-PHP
+    - name: Garantindo a instalação do Apache + PHP + MySQL
       apt:
-        name: [apache2,php,libapache2-mod-php]
+        name: [apache2,php,libapache2-mod-php,php-gd,php-ssh2,mcrypt,mysql-server-5.7,python-mysqldb,php-mysql]
         state: latest
         update_cache: yes
       become: yes

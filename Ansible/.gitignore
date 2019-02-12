@@ -1,3 +1,4 @@
 .vagrant/
 keys/
 *.log
+*.retry
