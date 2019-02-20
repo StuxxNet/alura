@@ -1,22 +1,22 @@
 ---
-- name: Testando minha playbook
-  hosts: all
+- name: MySQL
+  hosts: database
 
   handlers:
-    - name: restart apache
+    - name: restart mysql
       service:
-        name: apache2
+        name: mysql
         state: restarted
       become: yes
 
   tasks:
-    - name: Garantindo a instalação do Apache + PHP + MySQL
+    - name: Garantindo a instalação do MySQL
       apt:
-        name: [apache2,php,libapache2-mod-php,php-gd,php-ssh2,mcrypt,mysql-server-5.7,python-mysqldb,php-mysql]
+        name: [mysql-server-5.7,python-mysqldb]
         state: latest
         update_cache: yes
       become: yes
-
+    
     - name: Garantindo o banco MySQL
       mysql_db:
         name: wordpress_db
@@ -31,6 +31,37 @@
         password: 12345
         priv: 'wordpress_db.*:ALL,GRANT'
         state: present
+        host: "{{ item }}"
+      with_items:
+        - 'localhost'
+        - '127.0.0.1'
+        - '192.168.1.20'
+      become: yes
+
+    - name: Garantindo conexoes externas do MySQL
+      copy:
+        src: /vagrant/files/mysqld.cnf
+        dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+      notify:
+        - restart mysql
+      become: yes
+
+- name: Wordpress
+  hosts: wordpress
+
+  handlers:
+    - name: restart apache
+      service:
+        name: apache2
+        state: restarted
+      become: yes
+
+  tasks:
+    - name: Garantindo a instalação do Apache + PHP
+      apt:
+        name: [apache2,php,libapache2-mod-php,php-gd,php-ssh2,mcrypt,php-mysql]
+        state: latest
+        update_cache: yes
       become: yes
 
     - name: Garantindo o download do WordPress
@@ -61,6 +92,7 @@
         - { regex: 'database_name_here', value: 'wordpress_db' }
         - { regex: 'username_here', value: 'wordpress_user' }
         - { regex: 'password_here', value: '12345' }
+        - { regex: 'localhost', value: '192.168.1.30'}
       become: yes
 
     - name: Copiando o arquivo de configuração do Apache pra publicar o WordPress
