@@ -1,0 +1,37 @@
+---
+- name: Garantindo a instalação do MySQL
+  apt:
+    name: [mysql-server-5.7,python-mysqldb]
+    state: latest
+    update_cache: yes
+  become: yes
+
+- name: Garantindo o banco MySQL
+  mysql_db:
+    name: "{{ wp_db_name }}"
+    login_user: root
+    state: present
+  become: yes
+
+- name: Garantindo usuario do MySQL
+  mysql_user:
+    login_user: root
+    name: "{{ wp_user_name }}"
+    password: "{{ wp_user_password }}"
+    priv: "{{ wp_db_name }}.*:ALL,GRANT"
+    state: present
+    host: "{{ item }}"
+  with_items:
+    - 'localhost'
+    - '127.0.0.1'
+    - '{{ wp_ip_host }}'
+  become: yes
+
+- name: Garantindo conexoes externas do MySQL
+  copy:
+    src: files/mysqld.cnf
+    dest: /etc/mysql/mysql.conf.d/mysqld.cnf
+  notify:
+    - restart mysql
+  become: yes
+...
