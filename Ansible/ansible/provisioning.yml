@@ -7,6 +7,5 @@
 - name: Instalando o Wordpress
   hosts: wordpress
   roles:
-    - webserver
     - wordpress 
 ...

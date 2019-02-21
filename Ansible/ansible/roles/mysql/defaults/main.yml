@@ -1,0 +1,9 @@
+---
+wp_db_name: wordpress_db
+wp_user_name: wordpress
+wp_user_password: 12345
+wp_ip_host:
+  - localhost
+  - '127.0.0.1'
+  - '192.168.1.20'
+...
